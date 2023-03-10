@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
+        
+        <title>Pekomon</title>
+        
+        <style>
+            * {
+                font-family: 'Press Start 2P', cursive;
+            }
+            body {
+                background-color: black;
+            }
+
+            h1, div {
+                margin: 0;
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                -khtml-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
+
+            button {
+                border: 0;
+                font-size: 16px;
+            }
+            
+            button:hover {
+                background-color: #ddd;
+                cursor: pointer;
+            }
+        </style>
+
+    </head>
+
+    <body>
+        <div style="width: fit-content; position: relative;">
+            <div
+            id="overlappingDiv"
+            style="
+                position: absolute; 
+                bottom: 0; 
+                background-color: black; 
+                width: 100%; 
+                height: 100%; 
+                opacity: 0; 
+                pointer-events: none;
+                z-index: 10;
+            ">
+            </div>
+            
+            <canvas></canvas>
+
+            <div id="userInterface" style="display: none;">
+
+                <!-- Health bar of Draggle -->
+                <div
+                style="
+                    width: 250px;
+                    padding: 12px;
+                    padding-bottom: 20px;
+                    position: absolute;
+                    top: 50px;
+                    left: 50px;
+                    background-color: white; 
+                    border: 4px black solid;
+                ">
+                    <h1 style="font-size: 16px;">Draggle</h1>
+                    <div style="position: relative; margin: 10px 0;">
+                        <div style="position: absolute; left: 0; right: 0; height: 5px; background-color: #ccc;"></div>
+                        <div id="enemyHealthBar" style="position: absolute; left: 0; right: 0; height: 5px; background-color: green;"></div>
+                    </div>
+                </div>
+                
+                <!-- Health bar of Emby -->
+                <div style="
+                    width: 250px;
+                    padding: 12px;
+                    padding-bottom: 20px;
+                    position: absolute;
+                    top: 330px;
+                    right: 50px;
+                    background-color: white; 
+                    border: 4px black solid;
+                ">
+                    <h1 style="font-size: 16px;">Emby</h1>
+                    <div style="position: relative; margin: 10px 0;">
+                        <div style="position: absolute; left: 0; right: 0; height: 5px; background-color: #ccc;"></div>
+                        <div id="playerHealthBar" style="position: absolute; left: 0; right: 0; height: 5px; background-color: green;"></div>
+                    </div>
+                </div>
+    
+    
+                <div style="
+                    position: absolute; 
+                    background-color: white; 
+                    height: 140px; 
+                    bottom: 0px; 
+                    left: 0; 
+                    right: 0; 
+                    border-top: 4px black solid;
+                    display: flex;
+                ">
+                    <div 
+                    id="dialogueBox"
+                    style="
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        bottom: 0;
+                        right: 0;
+                        background-color: white;
+                        padding: 12px;
+                        display: none;
+                        cursor: pointer;
+                    ">
+                        hello
+                    </div>
+                    <div 
+                    id="attacksBox"
+                    style="
+                        width: 66.66%;
+                        display: grid;
+                        grid-template-columns: repeat(2, 1fr);
+                    ">
+                    </div>
+                    <div style="
+                        width: 33.33%;
+                        border-left: 4px black solid;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    ">
+                        <h1 id="attackType" style="font-size: 16px;">Attack Type</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js" integrity="sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js" integrity="sha512-6+YN/9o9BWrk6wSfGxQGpt3EUK6XeHi6yeHV+TYD2GR0Sj/cggRpXr1BrAQf0as6XslxomMUxXp2vIl+fv0QRA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./data/collisions.js"></script>
+    <script src="./data/battleZones.js"></script>
+    <script src="./data/attacks.js"></script>
+    <script src="./data/monsters.js"></script>
+    <script src="./data/audio.js"></script>
+    <script src="classes.js"></script>
+    <script src="index.js"></script>
+    <script src="battleScene.js"></script>
+
+</html>
